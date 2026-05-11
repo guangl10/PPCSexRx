@@ -1,0 +1,14 @@
+Package: PPCSexRx
+Type: Package
+Title: Prescribe Sub-symptom Exercise for Adolescent Concussion
+Version: 0.1.0
+Authors@R: person("Guang", "Li", email = "guangli@isu.edu", role = c("aut", "cre"),
+    comment = c(ORCID = "0009-0004-2807-9029"))
+Description: Implements the 2026 NATA Foundation Best Summary Evidence Research 
+    award-winning protocol for sub-symptom threshold aerobic exercise 
+    prescription in adolescents with persistent post-concussion symptoms. 
+    Based on Li G. (2026), winner of the NATA Foundation Student Writing Contest.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.1
