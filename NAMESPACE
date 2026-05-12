@@ -1,1 +1,7 @@
 export(prescribe_ppcs)
+export(screen_ppcs)
+export(track_progress)
+S3method(print,ppcs_prescription)
+S3method(print,ppcs_screen)
+S3method(print,ppcs_track)
+S3method(plot,ppcs_track)
