@@ -4,11 +4,23 @@ Title: Prescribe Sub-symptom Exercise for Adolescent Concussion
 Version: 0.1.0
 Authors@R: person("Guang", "Li", email = "guangli@isu.edu", role = c("aut", "cre"),
     comment = c(ORCID = "0009-0004-2807-9029"))
-Description: Implements the 2026 NATA Foundation Best Summary Evidence Research 
-    award-winning protocol for sub-symptom threshold aerobic exercise 
-    prescription in adolescents with persistent post-concussion symptoms. 
-    Based on Li G. (2026), winner of the NATA Foundation Student Writing Contest.
+Description: A clinical decision support system for sub-symptom threshold
+    aerobic exercise (SSTAE) prescription in adolescents with persistent
+    post-concussion symptoms (PPCS). Implements an evidence-based protocol
+    derived from a systematic review of seven studies (Li, 2026), encoding
+    safety screening, BCTT-guided heart rate prescription, session-level
+    progress tracking, and GRADE evidence disclosure into an open-source
+    tool for athletic trainers and clinicians. Designed to support
+    implementation in resource-limited settings where Buffalo Concussion
+    Treadmill Test equipment may be unavailable. GRADE: LOW certainty
+    evidence. For clinician use only; not a substitute for clinical judgement.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 7.3.1
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+URL: https://github.com/guangl10/PPCSexRx
+BugReports: https://github.com/guangl10/PPCSexRx/issues
