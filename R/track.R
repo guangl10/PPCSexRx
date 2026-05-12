@@ -134,13 +134,13 @@ track_progress <- function(log,
   pcss_change <- first_pcss - current_pcss   # positive = improvement
 
   phase <- if (symptoms_worsened) {
-    "Symptom Exacerbation — reduce intensity"
+    "Symptom Exacerbation - reduce intensity"
   } else if (sessions_total <= 3) {
-    "Early Adaptation (sessions 1-3) — establish tolerance"
+    "Early Adaptation (sessions 1-3) - establish tolerance"
   } else if (current_duration >= 20 && !symptoms_worsened) {
-    "Progressive Loading — advancing towards full dose"
+    "Progressive Loading - advancing towards full dose"
   } else {
-    "Consolidation — maintaining sub-threshold intensity"
+    "Consolidation - maintaining sub-threshold intensity"
   }
 
   # --- Recommendation text ---
@@ -180,11 +180,11 @@ track_progress <- function(log,
 print.ppcs_track <- function(x, ...) {
 
   trend_icon <- if (x$pcss_change > 0) {
-    if (capabilities("UTF-8")) "\u2193" else "[improving]"   # down arrow
+    if (isTRUE(capabilities("UTF-8"))) "\u2193" else "[improving]"   # down arrow
   } else if (x$pcss_change < 0) {
-    if (capabilities("UTF-8")) "\u2191" else "[worsening]"   # up arrow
+    if (isTRUE(capabilities("UTF-8"))) "\u2191" else "[worsening]"   # up arrow
   } else {
-    if (capabilities("UTF-8")) "\u2192" else "[stable]"      # right arrow
+    if (isTRUE(capabilities("UTF-8"))) "\u2192" else "[stable]"      # right arrow
   }
 
   if (x$verbose) {
@@ -272,3 +272,7 @@ plot.ppcs_track <- function(x, ...) {
          lty    = c(1, 2), pch = c(19, NA),
          bty    = "n", cex = 0.8)
 }
+
+#' @importFrom graphics abline axis legend lines par plot
+#' @importFrom utils tail
+NULL

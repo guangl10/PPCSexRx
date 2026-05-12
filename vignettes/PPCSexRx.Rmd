@@ -1,0 +1,243 @@
+---
+title: "PPCSexRx: From Evidence to Bedside Prescription"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{PPCSexRx: From Evidence to Bedside Prescription}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment  = "#>"
+)
+library(PPCSexRx)
+```
+
+## Background
+
+Persistent post-concussion symptoms (PPCS) — defined as symptoms lasting 28 or
+more days after injury — affect an estimated 15–30% of adolescent concussion
+cases. Despite growing evidence supporting sub-symptom threshold aerobic exercise
+(SSTAE) as a first-line rehabilitation strategy, most clinicians still rely on
+static PDF protocols that cannot respond to individual patient data.
+
+**PPCSexRx** translates the evidence synthesised in Li (2026) — winner of the
+2026 NATA Foundation Best Summary Evidence Research Award — into a fully
+interactive clinical decision support tool. The package implements three
+functions that mirror the real clinical workflow:
+
+```
+screen_ppcs()  →  prescribe_ppcs()  →  track_progress()
+```
+
+> **GRADE notice:** All recommendations in this package reflect LOW certainty
+> evidence with a conditional recommendation FOR SSTAE in adolescents with PPCS
+> (Li, 2026). Clinical judgement remains essential.
+
+---
+
+## Case 1: Rural High School — No BCTT Equipment Available
+
+A 16-year-old football player presents 35 days post-concussion with ongoing
+headache and fatigue. The athletic trainer works at a rural high school with no
+Buffalo Concussion Treadmill Test (BCTT) equipment.
+
+### Step 1: Eligibility Screen
+
+```{r case1-screen}
+screen_ppcs(age = 16, days_post_injury = 35)
+```
+
+The athlete is eligible. No vestibular, cervical, or vision contraindications
+are present.
+
+### Step 2: Exercise Prescription (Age-Predicted Fallback)
+
+Because no BCTT is available, `prescribe_ppcs()` automatically uses the
+age-predicted heart rate method (60–70% HRmax), as described in Li (2026), p.11.
+
+```{r case1-prescribe}
+rx1 <- prescribe_ppcs(age = 16, days_post_injury = 35)
+rx1
+```
+
+The prescription recommends **`r rx1$target_hr` bpm** for 20 minutes, 5 days
+per week — immediately implementable with any HR monitor, no specialist
+equipment required.
+
+### Step 3: Track Progress Across Sessions
+
+The athletic trainer records each session. After two sessions without worsening,
+the protocol advances intensity by 5 bpm.
+
+```{r case1-track}
+# Session 1
+t1 <- track_progress(
+  log              = NULL,
+  current_pcss     = 28,
+  current_hr       = rx1$target_hr,
+  current_duration = 18,
+  prescription     = rx1
+)
+
+# Session 2 — slight improvement
+t2 <- track_progress(
+  log              = t1$updated_log,
+  current_pcss     = 25,
+  current_hr       = rx1$target_hr,
+  current_duration = 20,
+  prescription     = rx1
+)
+
+# Session 3 — continued improvement: progression triggered
+t3 <- track_progress(
+  log              = t2$updated_log,
+  current_pcss     = 21,
+  current_hr       = rx1$target_hr,
+  current_duration = 20,
+  prescription     = rx1
+)
+t3
+```
+
+After `r t3$sessions_total` sessions with no worsening, the recommended HR
+advances to **`r t3$adjust_hr` bpm** — consistent with the progression rule
+in Li (2026), p.14.
+
+### Visualise the Rehabilitation Trajectory
+
+```{r case1-plot, fig.width = 6, fig.height = 5}
+plot(t3)
+```
+
+The dual-panel plot shows PCSS symptom burden (top) and achieved heart rate
+(bottom) across sessions, giving the clinician an immediate visual of recovery
+trajectory.
+
+---
+
+## Case 2: University Clinic — BCTT Available
+
+A 17-year-old swimmer presents 40 days post-concussion. The sports medicine
+clinic has BCTT equipment; the athlete's symptom threshold HR (HRST) was
+measured at 155 bpm.
+
+### Step 1: Screen
+
+```{r case2-screen}
+screen_ppcs(age = 17, days_post_injury = 40)
+```
+
+### Step 2: BCTT-Guided Prescription
+
+```{r case2-prescribe}
+rx2 <- prescribe_ppcs(age = 17, days_post_injury = 40, hrst = 155)
+rx2
+```
+
+The BCTT-guided target of **`r rx2$target_hr` bpm** (80% of HRST) is more
+precise than the age-predicted method and is the preferred approach when
+equipment is available (Li, 2026, p.11).
+
+---
+
+## Case 3: Safety Guardrail — Vestibular Contraindication
+
+A 15-year-old presents 30 days post-concussion but reports active dizziness
+and balance difficulties.
+
+```{r case3-screen}
+screen_ppcs(
+  age                 = 15,
+  days_post_injury    = 30,
+  vestibular_symptoms = TRUE
+)
+```
+
+The package correctly routes this athlete to vestibular physiotherapy before
+SSTAE can be considered. Attempting to prescribe directly also enforces the
+stop rule:
+
+```{r case3-prescribe, error = TRUE}
+prescribe_ppcs(
+  age                 = 15,
+  days_post_injury    = 30,
+  vestibular_symptoms = TRUE
+)
+```
+
+---
+
+## Case 4: Symptom Worsening — Stop-If-Worsen Rule
+
+An athlete's PCSS increases by 3 points between sessions, triggering the
+stop-if-worsen rule described in Li (2026), p.14.
+
+```{r case4-track}
+rx4 <- prescribe_ppcs(age = 16, days_post_injury = 35, hrst = 160)
+
+# Session 1: baseline
+t4a <- track_progress(
+  log              = NULL,
+  current_pcss     = 22,
+  current_hr       = 128,
+  current_duration = 20,
+  prescription     = rx4
+)
+
+# Session 2: PCSS worsens by 3 points (>= 2 threshold)
+t4b <- track_progress(
+  log              = t4a$updated_log,
+  current_pcss     = 25,
+  current_hr       = 128,
+  current_duration = 20,
+  prescription     = rx4
+)
+t4b
+```
+
+The recommended HR drops by 10 bpm to **`r t4b$adjust_hr` bpm** — protecting
+the athlete while keeping them in the exercise programme.
+
+---
+
+## Patient and Caregiver Output
+
+For communication with patients and families, set `verbose = FALSE` for
+plain-language output without clinical terminology.
+
+```{r verbose-false}
+screen_ppcs(age = 16, days_post_injury = 35, verbose = FALSE)
+```
+
+---
+
+## Evidence Base and Limitations
+
+PPCSexRx encodes the clinical algorithm from Li (2026), which synthesised
+evidence from seven studies using GRADE methodology. Key limitations to
+communicate to patients and clinicians:
+
+- Evidence certainty is **LOW**; the recommendation is **conditional**.
+- The included studies were heterogeneous in protocol and outcome measurement.
+- This tool supports, but does not replace, clinical judgement.
+- All prescriptions should be supervised by a qualified clinician.
+
+## References
+
+Li G. (2026). Sub-symptom Threshold Aerobic Exercise for Adolescents With
+Persistent Post-concussion Symptoms (PPCS): A Critically Appraised Topic.
+Winner, NATA Foundation Best Summary Evidence Research Award.
+
+Leddy JJ, Haider MN, Ellis MJ, et al. Early Subthreshold Aerobic Exercise
+for Sport-Related Concussion. *JAMA Pediatr.* 2019;173(4):319–325.
+
+Kurowski BG, et al. Aerobic Exercise for Adolescents With Prolonged Symptoms
+After Mild Traumatic Brain Injury. *J Head Trauma Rehabil.*
+2017;32(2):79–89.
+
+Vernau BT, Haider MN, Fleming A, et al. Exercise-Induced Vision Dysfunction
+Early After Sport-Related Concussion Is Associated With Persistent
+Postconcussive Symptoms. *Clin J Sport Med.* 2023;33(4):388–394.

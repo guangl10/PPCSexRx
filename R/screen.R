@@ -136,7 +136,7 @@ screen_ppcs <- function(age,
 print.ppcs_screen <- function(x, ...) {
 
   # UTF-8 capable terminals get symbols; others get ASCII fallback
-  if (capabilities("UTF-8")) {
+  if (isTRUE(capabilities("UTF-8"))) {
     icon <- switch(x$status,
       eligible        = "\u2705",
       contraindicated = "\U0001F6D1",
