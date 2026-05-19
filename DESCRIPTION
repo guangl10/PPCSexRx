@@ -7,7 +7,7 @@ Authors@R: person("Guang", "Li", email = "guangli@isu.edu", role = c("aut", "cre
 Description: A clinical decision support system for sub-symptom threshold
     aerobic exercise (SSTAE) prescription in adolescents with persistent
     post-concussion symptoms (PPCS). Implements an evidence-based protocol
-    derived from a systematic review of seven studies (Li, 2026; doi:10.1101/XXXXXX), encoding
+    derived from a systematic review of seven studies (Li, 2026; doi:10.17605/osf.io/kvuf6), encoding
     safety screening, BCTT-guided heart rate prescription, session-level
     progress tracking, and GRADE evidence disclosure into an open-source
     tool for athletic trainers and clinicians. Designed to support
