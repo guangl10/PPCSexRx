@@ -132,6 +132,9 @@ screen_ppcs <- function(age,
 #'
 #' @param x A ppcs_screen object.
 #' @param ... Further arguments (unused).
+#' @return Invisibly returns \code{x} (a \code{ppcs_screen} list),
+#'   called primarily for its side effect of printing the eligibility
+#'   screen result to the console.
 #' @export
 print.ppcs_screen <- function(x, ...) {
 

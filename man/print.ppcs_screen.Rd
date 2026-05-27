@@ -11,6 +11,11 @@
 
 \item{...}{Further arguments (unused).}
 }
+\value{
+Invisibly returns \code{x} (a \code{ppcs_screen} list),
+  called primarily for its side effect of printing the eligibility
+  screen result to the console.
+}
 \description{
 Print method for ppcs_screen objects
 }

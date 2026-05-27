@@ -11,6 +11,11 @@
 
 \item{...}{Further arguments passed to or from other methods.}
 }
+\value{
+Invisibly returns \code{x} (a \code{ppcs_prescription} list),
+  called primarily for its side effect of printing the formatted
+  prescription to the console.
+}
 \description{
 Displays a formatted clinical prescription sheet.
 }

@@ -11,6 +11,15 @@
 
 \item{...}{Further arguments passed to \code{plot()}.}
 }
+\value{
+Invisibly returns \code{x}, called for its side effect of
+  drawing a two-panel base-graphics figure: the upper panel shows
+  Post-Concussion Symptom Scale (PCSS) scores across sessions;
+  the lower panel shows achieved and target heart rate (bpm) across
+  sessions. Returns a message (via \code{\link{message}}) and
+  \code{invisible(x)} without plotting if fewer than two sessions
+  are recorded.
+}
 \description{
 Generates a dual-panel plot showing PCSS symptom trajectory and
 achieved HR over time. Requires base R graphics only (no dependencies).

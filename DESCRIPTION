@@ -7,13 +7,15 @@ Authors@R: person("Guang", "Li", email = "guangli@isu.edu", role = c("aut", "cre
 Description: A clinical decision support system for sub-symptom threshold
     aerobic exercise (SSTAE) prescription in adolescents with persistent
     post-concussion symptoms (PPCS). Implements an evidence-based protocol
-    derived from a systematic review of seven studies (Li, 2026; <doi:10.17605/osf.io/kvuf6>), encoding
-    safety screening, BCTT-guided heart rate prescription, session-level
-    progress tracking, and GRADE evidence disclosure into an open-source
-    tool for athletic trainers and clinicians. Designed to support
-    implementation in resource-limited settings where Buffalo Concussion
-    Treadmill Test equipment may be unavailable. GRADE: LOW certainty
-    evidence. For clinician use only; not a substitute for clinical judgement.
+    derived from a systematic review of seven studies (Li, 2026; <doi:10.17605/osf.io/kvuf6>),
+    encoding safety screening, Buffalo Concussion Treadmill Test (BCTT)-guided
+    heart rate prescription, session-level progress tracking, and evidence
+    disclosure using the Grading of Recommendations, Assessment, Development
+    and Evaluation (GRADE) framework into an open-source tool for athletic
+    trainers and clinicians. Designed to support implementation in
+    resource-limited settings where BCTT equipment may be unavailable.
+    GRADE certainty of evidence: LOW. For clinician use only; not a
+    substitute for clinical judgement.
 License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 8.0.0

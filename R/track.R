@@ -176,6 +176,9 @@ track_progress <- function(log,
 #'
 #' @param x A ppcs_track object.
 #' @param ... Further arguments (unused).
+#' @return Invisibly returns \code{x} (a \code{ppcs_track} list),
+#'   called primarily for its side effect of printing the session
+#'   progress summary to the console.
 #' @export
 print.ppcs_track <- function(x, ...) {
 
@@ -232,6 +235,13 @@ print.ppcs_track <- function(x, ...) {
 #'
 #' @param x A ppcs_track object.
 #' @param ... Further arguments passed to \code{plot()}.
+#' @return Invisibly returns \code{x}, called for its side effect of
+#'   drawing a two-panel base-graphics figure: the upper panel shows
+#'   Post-Concussion Symptom Scale (PCSS) scores across sessions;
+#'   the lower panel shows achieved and target heart rate (bpm) across
+#'   sessions. Returns a message (via \code{\link{message}}) and
+#'   \code{invisible(x)} without plotting if fewer than two sessions
+#'   are recorded.
 #' @export
 plot.ppcs_track <- function(x, ...) {
   log <- x$updated_log

@@ -11,6 +11,11 @@
 
 \item{...}{Further arguments (unused).}
 }
+\value{
+Invisibly returns \code{x} (a \code{ppcs_track} list),
+  called primarily for its side effect of printing the session
+  progress summary to the console.
+}
 \description{
 Print method for ppcs_track objects
 }

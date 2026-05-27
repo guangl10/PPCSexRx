@@ -122,6 +122,9 @@ prescribe_ppcs <- function(age,
 #'
 #' @param x A ppcs_prescription object.
 #' @param ... Further arguments passed to or from other methods.
+#' @return Invisibly returns \code{x} (a \code{ppcs_prescription} list),
+#'   called primarily for its side effect of printing the formatted
+#'   prescription to the console.
 #' @export
 print.ppcs_prescription <- function(x, ...) {
   cat("========================================\n")
