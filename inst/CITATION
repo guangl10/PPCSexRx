@@ -1,0 +1,14 @@
+bibentry(
+  bibtype    = "Manual",
+  title      = "PPCSexRx: Prescribe Sub-Symptom Exercise for Adolescent Concussion",
+  author     = person("Guang", "Li", email = "contact@guanglab.org",
+                     comment = c(ORCID = "0009-0004-2807-9029",
+                                 "Idaho State University")),
+  year       = 2026,
+  note       = "R package version 0.1.1",
+  url        = "https://guanglab.org",
+  textVersion = paste(
+    "Li G (2026). PPCSexRx: Prescribe Sub-Symptom Exercise for Adolescent",
+    "Concussion. R package version 0.1.1. https://guanglab.org"
+  )
+)
