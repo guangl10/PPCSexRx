@@ -1,0 +1,53 @@
+cff-version: 1.2.0
+message: "If you use PPCSexRx, please cite both the software and the underlying CAT."
+type: software
+title: "PPCSexRx: Prescribe Sub-Symptom Exercise for Adolescent Concussion"
+version: 0.1.1
+date-released: "2026-06-15"
+authors:
+  - family-names: Li
+    given-names: Guang
+    orcid: "https://orcid.org/0009-0004-2807-9029"
+    email: contact@guanglab.org
+    affiliation: "Idaho State University"
+abstract: >-
+  Clinical decision support R package for sub-symptom threshold aerobic
+  exercise (SSTAE) prescription in adolescents with persistent post-concussion
+  symptoms (PPCS). Encodes safety screening, BCTT-guided or age-predicted
+  heart rate prescription, session tracking, and GRADE evidence disclosure.
+  GRADE certainty: LOW. For licensed clinician use only.
+license: MIT
+repository-code: "https://github.com/guangl10/PPCSexRx"
+url: "https://CRAN.R-project.org/package=PPCSexRx"
+keywords:
+  - athletic training
+  - concussion
+  - PPCS
+  - SSTAE
+  - clinical decision support
+  - R package
+  - CAATE
+identifiers:
+  - type: doi
+    value: "10.32614/CRAN.package.PPCSexRx"
+    description: "CRAN package DOI"
+preferred-citation:
+  type: manual
+  title: "PPCSexRx: Prescribe Sub-Symptom Exercise for Adolescent Concussion"
+  authors:
+    - family-names: Li
+      given-names: Guang
+      orcid: "https://orcid.org/0009-0004-2807-9029"
+  year: 2026
+  version: 0.1.1
+  url: "https://CRAN.R-project.org/package=PPCSexRx"
+  doi: "10.32614/CRAN.package.PPCSexRx"
+references:
+  - type: generic
+    title: "Sub-symptom Threshold Aerobic Exercise for Adolescents With Persistent Post-concussion Symptoms (PPCS): A Critically Appraised Topic"
+    authors:
+      - family-names: Li
+        given-names: Guang
+    year: 2026
+    doi: "10.17605/osf.io/kvuf6"
+    notes: "Winner, 2026 NATA Foundation Best Summary Evidence Research Award"

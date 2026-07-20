@@ -1,0 +1,50 @@
+{
+  "title": "PPCSexRx: Prescribe Sub-Symptom Exercise for Adolescent Concussion",
+  "version": "0.1.1",
+  "upload_type": "software",
+  "description": "<p>Clinical decision support R package for sub-symptom threshold aerobic exercise (SSTAE) prescription in adolescents with persistent post-concussion symptoms (PPCS). Implements an evidence-based protocol derived from Li (2026) critically appraised topic (NATA Foundation Best Summary Evidence Research Award), encoding safety screening, Buffalo Concussion Treadmill Test (BCTT)-guided heart rate prescription, session-level progress tracking, and GRADE evidence disclosure. GRADE certainty of evidence: LOW. For licensed clinician use only; not a substitute for clinical judgement.</p><p>CRAN: <a href=\"https://CRAN.R-project.org/package=PPCSexRx\">https://CRAN.R-project.org/package=PPCSexRx</a>. Package DOI: <a href=\"https://doi.org/10.32614/CRAN.package.PPCSexRx\">10.32614/CRAN.package.PPCSexRx</a>. Evidence synthesis: <a href=\"https://doi.org/10.17605/osf.io/kvuf6\">10.17605/osf.io/kvuf6</a>.</p>",
+  "creators": [
+    {
+      "name": "Li, Guang",
+      "affiliation": "Idaho State University",
+      "orcid": "0009-0004-2807-9029"
+    }
+  ],
+  "keywords": [
+    "athletic training",
+    "concussion",
+    "PPCS",
+    "SSTAE",
+    "clinical decision support",
+    "R",
+    "CAATE"
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "relation": "isIdenticalTo",
+      "identifier": "10.32614/CRAN.package.PPCSexRx",
+      "scheme": "doi",
+      "resource_type": "software"
+    },
+    {
+      "relation": "isDocumentedBy",
+      "identifier": "10.17605/osf.io/kvuf6",
+      "scheme": "doi",
+      "resource_type": "publication-other"
+    },
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/guangl10/PPCSexRx",
+      "scheme": "url",
+      "resource_type": "software"
+    },
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://CRAN.R-project.org/package=PPCSexRx",
+      "scheme": "url",
+      "resource_type": "software"
+    }
+  ]
+}

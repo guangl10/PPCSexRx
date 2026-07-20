@@ -54,6 +54,18 @@ See `vignette("PPCSexRx")` after installation.
 
 ## Citation
 
+Software (R package):
+
+```r
+citation("PPCSexRx")
+```
+
+> Li G (2026). PPCSexRx: Prescribe Sub-Symptom Exercise for Adolescent
+> Concussion. R package version 0.1.1.
+> <https://doi.org/10.32614/CRAN.package.PPCSexRx>
+
+<!-- After Zenodo release, add badge + version DOI here. See docs/ZENODO_RELEASE.md -->
+
 Primary evidence synthesis:
 
 > Li G (2026). Sub-symptom Threshold Aerobic Exercise for Adolescents With PPCS:

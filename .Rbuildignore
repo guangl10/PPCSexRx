@@ -1,2 +1,6 @@
 ^cran-comments\.md$
 ^cran-maintainer-email-update\.txt$
+^CITATION\.cff$
+^\.zenodo\.json$
+^paper$
+^docs$
