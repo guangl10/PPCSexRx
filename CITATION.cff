@@ -29,6 +29,12 @@ keywords:
   - CAATE
 identifiers:
   - type: doi
+    value: "10.5281/zenodo.21449008"
+    description: "Zenodo version DOI for v0.1.1"
+  - type: doi
+    value: "10.5281/zenodo.21449007"
+    description: "Zenodo concept DOI (all versions)"
+  - type: doi
     value: "10.32614/CRAN.package.PPCSexRx"
     description: "CRAN package DOI"
 preferred-citation:
@@ -40,8 +46,8 @@ preferred-citation:
       orcid: "https://orcid.org/0009-0004-2807-9029"
   year: 2026
   version: 0.1.1
-  url: "https://CRAN.R-project.org/package=PPCSexRx"
-  doi: "10.32614/CRAN.package.PPCSexRx"
+  url: "https://doi.org/10.5281/zenodo.21449008"
+  doi: "10.5281/zenodo.21449008"
 references:
   - type: generic
     title: "Sub-symptom Threshold Aerobic Exercise for Adolescents With Persistent Post-concussion Symptoms (PPCS): A Critically Appraised Topic"

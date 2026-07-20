@@ -11,7 +11,8 @@ Foundation Best Summary Evidence Research Award**.
 > For licensed clinicians only. Not a substitute for clinical judgement.
 
 **Evidence synthesis:** [OSF 10.17605/osf.io/kvuf6](https://doi.org/10.17605/osf.io/kvuf6)  
-**Project site:** [guanglab.org](https://guanglab.org)
+**Project site:** [guanglab.org](https://guanglab.org)  
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21449008.svg)](https://doi.org/10.5281/zenodo.21449008)
 
 ---
 
@@ -62,9 +63,9 @@ citation("PPCSexRx")
 
 > Li G (2026). PPCSexRx: Prescribe Sub-Symptom Exercise for Adolescent
 > Concussion. R package version 0.1.1.
-> <https://doi.org/10.32614/CRAN.package.PPCSexRx>
-
-<!-- After Zenodo release, add badge + version DOI here. See ZENODO_RELEASE.md -->
+> <https://doi.org/10.5281/zenodo.21449008>  
+> Also on CRAN: <https://doi.org/10.32614/CRAN.package.PPCSexRx>  
+> Concept DOI (all versions): <https://doi.org/10.5281/zenodo.21449007>
 
 Primary evidence synthesis:
 

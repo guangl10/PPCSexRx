@@ -6,11 +6,12 @@ bibentry(
                                  "Idaho State University")),
   year       = 2026,
   note       = "R package version 0.1.1",
-  doi        = "10.32614/CRAN.package.PPCSexRx",
-  url        = "https://CRAN.R-project.org/package=PPCSexRx",
+  doi        = "10.5281/zenodo.21449008",
+  url        = "https://doi.org/10.5281/zenodo.21449008",
   textVersion = paste(
     "Li G (2026). PPCSexRx: Prescribe Sub-Symptom Exercise for Adolescent",
     "Concussion. R package version 0.1.1.",
-    "https://doi.org/10.32614/CRAN.package.PPCSexRx"
+    "https://doi.org/10.5281/zenodo.21449008",
+    "(CRAN: https://doi.org/10.32614/CRAN.package.PPCSexRx)"
   )
 )
