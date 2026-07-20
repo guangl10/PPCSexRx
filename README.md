@@ -64,7 +64,7 @@ citation("PPCSexRx")
 > Concussion. R package version 0.1.1.
 > <https://doi.org/10.32614/CRAN.package.PPCSexRx>
 
-<!-- After Zenodo release, add badge + version DOI here. See docs/ZENODO_RELEASE.md -->
+<!-- After Zenodo release, add badge + version DOI here. See ZENODO_RELEASE.md -->
 
 Primary evidence synthesis:
 
