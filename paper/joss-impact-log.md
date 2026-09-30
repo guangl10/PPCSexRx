@@ -12,7 +12,7 @@ Aspirational plans alone are not enough; prefer **dated** entries.
 | 2026-08 | Teaching demo on package | ISU / public trailer | https://guanglab.org/cstt-demo/ | Educational shell consuming PPCSexRx rules |
 | | Classroom / pilot session | | | *add when dated* |
 | | External user issue / email | | | *add when received* |
-| | Citation in paper/preprint | | | *add DOI when live* |
+| 2026-09-30 | JOSS paper narrative v1 | author | `paper/paper.md` on main | Evidence→auditable engine story locked for Dec–Jan submit window |
 
 ## How to add an entry
 

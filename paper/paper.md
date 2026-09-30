@@ -6,6 +6,7 @@ tags:
   - concussion
   - athletic training
   - education
+  - open science
 authors:
   - name: Guang Li
     orcid: 0009-0004-2807-9029
@@ -19,77 +20,108 @@ bibliography: paper.bib
 
 # Summary
 
-`PPCSexRx` is an R package that encodes an evidence-informed clinical decision
-support workflow for sub-symptom threshold aerobic exercise (SSTAE) in
-adolescents with persistent post-concussion symptoms (PPCS). It provides
-functions for eligibility screening, heart-rate target prescription
-(Buffalo Concussion Treadmill Test–guided or age-predicted fallback), and
-session-level progress tracking with explicit GRADE evidence disclosure
-(@Li2026CAT; @PPCSexRxCRAN).
+`PPCSexRx` is research software that turns an award-winning evidence synthesis
+on adolescent persistent post-concussion symptoms (PPCS) into an **auditable,
+versioned rule engine** for sub-symptom threshold aerobic exercise (SSTAE)
+prescription [@Li2026CAT; @PPCSexRxCRAN]. Rather than leaving GRADE-rated
+guidance only in narrative form, the package encodes the bedside sequence
+clinicians and educators actually rehearse:
 
-The package is intended for licensed athletic trainers and clinicians, and for
-athletic training education programs that need an auditable, open rule engine
-rather than a black-box calculator. Certainty of evidence for the underlying
-recommendation is **LOW**; outputs are decision support, not a substitute for
-clinical judgement.
+```text
+screen_ppcs()  →  prescribe_ppcs()  →  track_progress()
+```
+
+Each step returns structured objects with method labels, GRADE disclosure, and
+safety language so users can see *why* a target heart rate was produced—not
+only the number. When a Buffalo Concussion Treadmill Test (BCTT) symptom
+threshold is available, prescription anchors to 80% of that threshold; when it
+is not, the package uses a transparent age-predicted fallback and names that
+path explicitly. Runtime depends only on base R, which keeps classroom and
+clinic installation friction low.
+
+The intended users are licensed athletic trainers and clinicians, and athletic
+training education programs that need inspectable algorithms for laboratory
+teaching and protocol appendices. Underlying recommendation certainty remains
+**LOW** (conditional recommendation); outputs are decision support, never a
+substitute for clinical judgement.
 
 # Statement of need
 
-Adolescent PPCS care frequently requires structured aerobic prescription, yet
-many training and practice settings lack standardized teaching tools that (1)
-expose the evidence source for each rule, (2) handle missing BCTT equipment via
-transparent fallbacks, and (3) can be embedded in CAATE laboratory instruction.
-Existing concussion resources are often narrative guidelines or proprietary
-apps that are difficult to audit in coursework.
+SSTAE is widely discussed in concussion care, yet two practical gaps block
+reproducible use in research training and CAATE-aligned education:
 
-`PPCSexRx` fills this gap by shipping a CRAN-installable rule engine derived
-from a critically appraised topic (@Li2026CAT), with vignette documentation
-suitable for classroom demonstration and research-protocol illustration.
+1. **Opaque tooling.** Many available calculators and commercial modules hide
+   dosing rules, evidence provenance, and stop conditions—unsuitable when
+   students must defend a prescription or when a manuscript needs an
+   appendable, citable algorithm.
+2. **Resource-aware fidelity.** Real settings often lack BCTT equipment.
+   Educators still need a path that is *honest about fallbacks* rather than
+   silently inventing precision.
 
-# State of the field
+Open, language-native research software for this narrow pathway is scarce.
+Guideline PDFs and proprietary apps do not give instructors a CRAN-installable
+object they can cite, test, and embed in labs.
 
-Open-source athletic training software for SSTAE prescription is scarce.
-Commercial concussion platforms may include exercise modules but are not
-designed as citable, versioned research software with inspectable algorithms.
-`PPCSexRx` does not replace comprehensive electronic health records; it
-implements a narrow, documented prescription pathway for education and
-protocol support.
+`PPCSexRx` addresses the gap by shipping the Li (2026) critically appraised
+topic as executable R functions with vignettes that demonstrate (a) BCTT-guided
+prescription, (b) hard eligibility stops before the PPCS window, and
+(c) age-predicted fallback when `hrst` is unavailable—including explicit
+language about what that fallback is *not* (not an individualized threshold,
+not RTP clearance).
 
 # Software design
 
-Core exported functions:
+| Function | Role |
+|----------|------|
+| `screen_ppcs()` | PICO-aligned eligibility and referral routing (timing, age band, vestibular/cervical/vision flags) |
+| `prescribe_ppcs()` | BCTT-guided or age-predicted target heart rate with method + GRADE fields |
+| `track_progress()` | Session log with stop-if-worsen / progression rules tied to the CAT |
 
-- `screen_ppcs()` — PICO-aligned eligibility / contraindication screening
-- `prescribe_ppcs()` — BCTT-guided (80% of heart-rate threshold) or
-  age-predicted fallback target heart rate
-- `track_progress()` — session logging with stop-if-worsen rules
-
-The package depends only on base R (`graphics`, `utils`) for runtime use,
-keeping classroom installation friction low.
+Design constraints deliberately favor teaching and protocol use: no proprietary
+runtime, no hidden model weights, and no Bayesian extension in the CRAN 0.1.1
+line. A separate teaching shell can call the same engine for
+predict–observe–explain cases; the package remains the citable algorithmic
+source of truth.
 
 # Research and educational impact
 
-`PPCSexRx` supports (a) reproducible encoding of SSTAE rules for manuscript and
-protocol appendices, and (b) CAATE-oriented teaching modules that surface
-evidence provenance ("why this prescription") alongside numeric targets. A
-browser-based teaching shell built on the package is under development for
-laboratory use; the CRAN package remains the stable algorithmic source.
+The package is the software layer of a larger evidence-to-education arc:
+
+- **Evidence provenance.** Algorithms implement a CAT recognized with the 2026
+  NATA Foundation Best Summary Evidence Research Award [@Li2026CAT].
+- **Citability.** Version 0.1.1 is on CRAN and archived on Zenodo
+  [@PPCSexRxCRAN], so protocols and education grants can point to a stable DOI.
+- **Teaching translation.** A public concept trailer for CAATE-oriented SSTAE
+  competency training (`https://guanglab.org/cstt-demo/`) consumes these rules
+  so students practice workflow execution and boundary judgment with visible
+  “Why this Rx” rationale. The package—not the browser shell—is what this JOSS
+  paper submits.
+- **Grant-facing preliminary use.** The same 0.1.1 engine was cited as the
+  algorithmic preliminary in a 2026 NATA Foundation Athletic Training Education
+  and Practice pre-proposal (CSTT), keeping software claims scoped to education
+  feasibility rather than patient-outcome efficacy.
+
+`PPCSexRx` does not claim broad clinical adoption; it claims a **reproducible
+encoding** of LOW-certainty SSTAE rules that educators and researchers can
+install, inspect, and cite.
 
 # Acknowledgements
 
 Evidence synthesis underlying the algorithms received the 2026 NATA Foundation
-Best Summary Evidence Research Award (@Li2026CAT).
+Best Summary Evidence Research Award [@Li2026CAT]. Idaho State University
+athletic training colleagues provided formative feedback on teaching-facing
+boundaries for the companion education project; they are not co-authors of this
+software paper unless separately agreed.
 
 # AI usage disclosure
 
-Generative AI tools were used as assistants during software and manuscript
-preparation (including drafting and editing of documentation and this short
-paper, and occasional code scaffolding or refactoring suggestions). Models
-used included Cursor agent assistants and OpenRouter-hosted chat models
+Generative AI tools assisted with documentation and this short paper (drafting
+and editing) and with occasional code scaffolding or refactoring suggestions.
+Tools included Cursor agent assistants and OpenRouter-hosted chat models
 (notably `openai/gpt-5-mini` for routine drafting). The author reviewed,
-edited, and validated all AI-assisted outputs; clinical rule design, GRADE
-disclosure language, API choices, and test expectations were human decisions.
-AI tools were not used to generate unsupervised conversational replies to
-editors or reviewers.
+edited, and validated all AI-assisted outputs. Clinical rule design, GRADE
+disclosure wording, API choices, and test expectations were human decisions.
+AI tools were not used for unsupervised conversational replies to editors or
+reviewers.
 
 # References
