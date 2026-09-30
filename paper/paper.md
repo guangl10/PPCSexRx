@@ -13,7 +13,7 @@ authors:
 affiliations:
   - name: Idaho State University
     index: 1
-date: 19 July 2026
+date: 30 September 2026
 bibliography: paper.bib
 ---
 
@@ -79,5 +79,17 @@ laboratory use; the CRAN package remains the stable algorithmic source.
 
 Evidence synthesis underlying the algorithms received the 2026 NATA Foundation
 Best Summary Evidence Research Award (@Li2026CAT).
+
+# AI usage disclosure
+
+Generative AI tools were used as assistants during software and manuscript
+preparation (including drafting and editing of documentation and this short
+paper, and occasional code scaffolding or refactoring suggestions). Models
+used included Cursor agent assistants and OpenRouter-hosted chat models
+(notably `openai/gpt-5-mini` for routine drafting). The author reviewed,
+edited, and validated all AI-assisted outputs; clinical rule design, GRADE
+disclosure language, API choices, and test expectations were human decisions.
+AI tools were not used to generate unsupervised conversational replies to
+editors or reviewers.
 
 # References

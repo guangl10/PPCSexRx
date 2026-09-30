@@ -75,6 +75,12 @@ Primary evidence synthesis:
 
 ---
 
+## Contributing
+
+Bug reports and small documentation/test PRs are welcome. See
+[CONTRIBUTING.md](CONTRIBUTING.md) and the
+[Code of Conduct](CODE_OF_CONDUCT.md).
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
