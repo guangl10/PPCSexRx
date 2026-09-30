@@ -13,6 +13,7 @@ Aspirational plans alone are not enough; prefer **dated** entries.
 | | Classroom / pilot session | | | *add when dated* |
 | | External user issue / email | | | *add when received* |
 | 2026-09-30 | JOSS paper narrative v1 | author | `paper/paper.md` on main | Evidence→auditable engine story locked for Dec–Jan submit window |
+| 2026-09-30 | Doc history policy | author | `paper/archive/README.md` | Snapshots before major paper rewrites; restore path documented |
 
 ## How to add an entry
 

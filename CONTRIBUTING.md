@@ -24,6 +24,13 @@ devtools::test()
 devtools::check()
 ```
 
+## Documentation history (JOSS / paper)
+
+Substantial rewrites of `paper/paper.md` must leave a snapshot under
+`paper/archive/` *before* replacing the live file. See
+[`paper/archive/README.md`](paper/archive/README.md). Prefer append-only edits
+to `paper/joss-impact-log.md`.
+
 ## Pull request expectations
 
 - Do not change clinical thresholds, GRADE language, or safety/hold rules
