@@ -67,6 +67,10 @@ citation("PPCSexRx")
 > Also on CRAN: <https://doi.org/10.32614/CRAN.package.PPCSexRx>  
 > Concept DOI (all versions): <https://doi.org/10.5281/zenodo.21449007>
 
+Maintainer note for JOSS / reviewers: dated research- and teaching-use
+signals are collected in
+[`paper/joss-impact-log.md`](paper/joss-impact-log.md).
+
 Primary evidence synthesis:
 
 > Li G (2026). Sub-symptom Threshold Aerobic Exercise for Adolescents With PPCS:

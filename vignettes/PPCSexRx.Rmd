@@ -105,6 +105,39 @@ Together, Case Studies 1 and 2 convey the design thesis demanded by tertiary cli
 
 ---
 
+## Case Study 3: Age-Predicted Fallback (Eligible, No BCTT)
+
+### When this path is used
+
+Use the age-predicted branch only when the athlete is **eligible** on screening **and** no BCTT symptom-threshold heart rate (`hrst`) is available. Typical triggers:
+
+- No treadmill / BCTT equipment
+- BCTT not completed yet, but SSTAE planning must proceed under local protocol
+- `hrst` intentionally omitted (`NULL`) in `prescribe_ppcs()`
+
+This is **not** a substitute for an individual exertional threshold. The numeric target is a **population-style intensity band** (about 60–70% of age-predicted HRmax in this encoding), disclosed as such, under **GRADE LOW** certainty (Li, 2026). It is **not**:
+
+- an individualized HRst from BCTT
+- a clearance or return-to-play decision
+- a claim of higher certainty than the underlying CAT
+
+### Eligible athlete without `hrst`
+
+```{r cs3-fallback}
+rx_fallback <- prescribe_ppcs(
+  age              = 16,
+  days_post_injury = 35,
+  hrst             = NULL,
+  vestibular_symptoms = FALSE,
+  cervical_symptoms   = FALSE
+)
+rx_fallback
+```
+
+Inspect `rx_fallback$method`: it should name the **age-predicted** path and keep GRADE / safety fields visible so classroom and auditor users can see why the number is a fallback rather than a BCTT-anchored dose.
+
+---
+
 ## Additional Notes for Deployments Beyond These Examples
 
 - **`screen_ppcs()`** captures referrals for vestibular, cervical, age-out-of-evidence, or vision-risk contexts before exertional planning advances.

@@ -5,6 +5,12 @@ test_that("prescribe_ppcs returns prescription object", {
   expect_equal(rx$duration_min, 20)
 })
 
+test_that("prescribe_ppcs uses age-predicted fallback without hrst", {
+  rx <- prescribe_ppcs(age = 16, days_post_injury = 35, hrst = NULL)
+  expect_equal(rx$target_hr, round(0.65 * (220 - 16)))
+  expect_match(rx$method, "Age-predicted")
+})
+
 test_that("prescribe_ppcs uses BCTT when hrst provided", {
   rx <- prescribe_ppcs(age = 16, days_post_injury = 35, hrst = 160)
   expect_equal(rx$target_hr, round(0.8 * 160))
