@@ -14,6 +14,7 @@ Aspirational plans alone are not enough; prefer **dated** entries.
 | | External user issue / email | | | *add when received* |
 | 2026-09-30 | JOSS paper narrative v1 | author | `paper/paper.md` on main | Evidence→auditable engine story locked for Dec–Jan submit window |
 | 2026-09-30 | Doc history policy | author | `paper/archive/README.md` | Snapshots before major paper rewrites; restore path documented |
+| 2026-11-12 | CRAN Task View listing | SportsAnalytics maintainers (Baumer) | https://CRAN.R-project.org/view=SportsAnalytics ; https://github.com/cran-task-views/SportsAnalytics/commit/325fd78 | Listed in General and in the Regular set. Maintainer commit `added PPCSexRx`, not a self-merge. |
 
 ## How to add an entry
 
